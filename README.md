@@ -3,6 +3,8 @@ A simple cli for transforming .vue to .js
 
 ## Installation
 
+Prerequisites: Node.js (>=6.x, 6.x preferred).
+
 ```
 $ npm install -g vue-to-js
 ```

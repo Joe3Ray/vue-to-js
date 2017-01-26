@@ -3,7 +3,8 @@ language: node_js
 
 # 要测试的nodejs版本
 node_js:
-  - "0.12"
+  - "6"
+  - "7"
 
 # 是否sudo身份
 sudo: false
