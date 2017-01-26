@@ -1,4 +1,6 @@
 # vue-to-js
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
+
 A simple cli for transforming .vue to .js
 
 ## Installation
@@ -72,3 +74,11 @@ compile `.vue` file to `.js` file
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)
+
+[npm-url]: https://npmjs.org/package/vue-to-js
+[downloads-image]: http://img.shields.io/npm/dm/vue-to-js.svg
+[npm-image]: http://img.shields.io/npm/v/vue-to-js.svg
+[travis-url]: https://travis-ci.org/Joe3Ray/vue-to-js
+[travis-image]: http://img.shields.io/travis/Joe3Ray/vue-to-js.svg
+[coveralls-url]:https://coveralls.io/r/Joe3Ray/vue-to-js
+[coveralls-image]:https://coveralls.io/repos/Joe3Ray/vue-to-js/badge.png
