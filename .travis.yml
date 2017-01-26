@@ -12,3 +12,6 @@ sudo: false
 # 运行的脚本，这个脚本必须你本地能跑通，且通过
 script:
     - "npm test"
+
+# 在脚本运行完后的命令，这里把travis结果提交给coverage
+after_script: "npm install coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
