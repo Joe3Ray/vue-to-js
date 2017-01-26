@@ -1,0 +1,13 @@
+# 语言
+language: node_js
+
+# 要测试的nodejs版本
+node_js:
+  - "0.12"
+
+# 是否sudo身份
+sudo: false
+
+# 运行的脚本，这个脚本必须你本地能跑通，且通过
+script:
+    - "npm test"
