@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var vuetojs = require(path.resolve(__dirname, '../lib'));
+var program = require('commander');
+
+var version = require(path.resolve(__dirname, '../package.json')).version;
+
+program
+    .version(version)
+    .option('-r, --resource [path]', '.vue file', '*.vue')
+    .option('-d, --dest [path]', 'output directory', './dest')
+    .option('-m, --mode [type]', 'output mode, one of amd/umd/global/commonjs', /^(amd|commonjs|umd|global)$/i)
+    .parse(process.argv);
+
+console.log('Start compiling...');
+
+vuetojs.compile({
+    resource: program.resource,
+    dest: program.dest,
+    mode: program.mode
+});
+
+console.log('Compile complete!');
