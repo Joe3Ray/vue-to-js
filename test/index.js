@@ -113,7 +113,8 @@ describe('vue-to-js api', function () {
             });
 
             var content = fs.readFileSync(path.resolve(__dirname, '../example/dest/index.js'), 'utf8');
-            expect(content.indexOf('(function (module, exports) {')).to.be.above(-1);
+            var reg = /\(function\s?\(module,\s?exports\)\s?{/;
+            expect(reg.test(content)).to.be.true;
         });
     });
 });

@@ -73,7 +73,7 @@ compile `.vue` file to `.js` file
 
 ### Todo
 
-- [ ] beautify output js
+- [x] beautify output js
 - [ ] support source map
 - [ ] support template engine
 - [ ] support css preprocessor

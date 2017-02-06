@@ -10,6 +10,7 @@ import {readFileSync, statSync, existsSync, mkdirSync, writeFileSync} from 'fs';
 import {parse, format} from 'path';
 import {parseComponent} from 'vue-template-compiler';
 import glob from 'glob';
+import {js_beautify} from 'js-beautify';
 
 /**
  * compile vue file to js code
@@ -56,7 +57,7 @@ export function generateCode(filepath, mode = 'amd') {
     let styleCode = result.styles.map(style => appendStyle(style.content)).join('\n');
     let scriptCode = result.script.content;
 
-    return `
+    let code = `
         ${prefix}
             /* append style */
             ${styleCode}
@@ -84,6 +85,8 @@ export function generateCode(filepath, mode = 'amd') {
             module.exports = obj;
         ${suffix}
     `;
+
+    return js_beautify(code);
 }
 
 /**
