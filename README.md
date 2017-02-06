@@ -71,6 +71,13 @@ compile `.vue` file to `.js` file
 | options.dest | <code>string</code> | directory of the compiled js files |
 | options.mode | <code>string</code> | output mode, one of amd/umd/global/commonjs |
 
+### Todo
+
+- [ ] beautify output js
+- [ ] support source map
+- [ ] support template engine
+- [ ] support css preprocessor
+
 ## License
 
 [MIT](https://opensource.org/licenses/MIT)
