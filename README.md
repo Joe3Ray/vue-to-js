@@ -51,6 +51,14 @@ vuetojs.compile({
 
 ### API
 
+#### vuetojs.getBlocks
+
+get all blocks code from `.vue` file
+
+| Param | Type | Description |
+| --- | --- | --- |
+| path | <code>string</code> | path of .vue file |
+
 #### vuetojs.generateCode
 
 generate js code with appointed mode from single `.vue` file
