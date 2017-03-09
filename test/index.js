@@ -50,11 +50,23 @@ describe('vue-to-js api', function () {
     var path = require('path');
     var filePath = path.resolve(__dirname, '../example/index.vue');
 
+    var info1 = vuetojs.getBlocks(filePath);
+    var info2 = vuetojs.getBlocks();
     var amdCode1 = vuetojs.generateCode(filePath);
     var amdCode2 = vuetojs.generateCode(filePath, 'xxx');
     var commonjsCode = vuetojs.generateCode(filePath, 'commonjs');
     var globalCode = vuetojs.generateCode(filePath, 'global');
     var umdCode = vuetojs.generateCode(filePath, 'commonjs');
+
+    describe('getBlocks', function () {
+        it('should return object when given filepath', function () {
+            expect(info1).to.be.an('object');
+        });
+
+        it('should return undefined when not given filepath', function () {
+            expect(info2).to.be.undefined;
+        });
+    });
 
     describe('generateCode', function () {
         it('should return string', function () {

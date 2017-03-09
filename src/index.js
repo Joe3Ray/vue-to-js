@@ -13,6 +13,42 @@ import glob from 'glob';
 import {js_beautify} from 'js-beautify';
 
 /**
+ * parse .vue content to an object with all blocks' code
+ * @param {string} filepath the path of .vue file
+ * 
+ * @return {Object} an object with all blocks' code
+ */
+export function getBlocks(filepath) {
+    if (!filepath) {
+        return;
+    }
+    const content = readFileSync(filepath, 'utf8');
+    const result = parseComponent(content);
+    var ret = {
+        template: {
+            code: result.template.content
+        },
+        script: {
+            code: result.script.content
+        },
+        styles: []
+    };
+    result.styles.forEach((e, i) => {
+        ret.styles[i] = {
+            code: e.content
+        };
+    });
+    result.customBlocks.forEach((e, i) => {
+        let type = e.type;
+        ret[type] = ret[type] || [];
+        ret[type].push({
+            code: e.content
+        });
+    });
+    return ret;
+}
+
+/**
  * compile vue file to js code
  *
  * @param {string} filepath the path of .vue file
@@ -51,11 +87,12 @@ export function generateCode(filepath, mode = 'amd') {
     };
 
     let {prefix, suffix} = choice[mode] || choice.amd;
-    const content = readFileSync(filepath, 'utf8');
-    const result = parseComponent(content);
-    let templateCode = result.template.content;
-    let styleCode = result.styles.map(style => appendStyle(style.content)).join('\n');
-    let scriptCode = result.script.content;
+    //const content = readFileSync(filepath, 'utf8');
+    //const result = parseComponent(content);
+    let result = getBlocks(filepath);
+    let templateCode = result.template.code;
+    let styleCode = result.styles.map(style => appendStyle(style.code)).join('\n');
+    let scriptCode = result.script.code;
 
     let code = `
         ${prefix}

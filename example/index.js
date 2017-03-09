@@ -3,8 +3,10 @@ var path = require('path');
 
 var file = path.resolve(__dirname, './index.vue');
 var code = vuetojs.generateCode(file);
+var obj = vuetojs.getBlocks(file);
 
 console.log(code);
+console.log(obj);
 
 vuetojs.compile({
     resource: file,
