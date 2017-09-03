@@ -1,6 +1,6 @@
 {
   "name": "vue-to-js",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "transform .vue file to .js file",
   "main": "lib/index.js",
   "scripts": {
